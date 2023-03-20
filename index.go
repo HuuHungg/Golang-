@@ -3,72 +3,28 @@ package main
 import "fmt"
 
 func main() {
-	// Cách sử dụng if else 
-	number := 10 
+	// loops 
+	// for init, condition, post
 
-	// if condition {//code here}
-	if number == 10 {
-		fmt.Println("number = 10")
+	// break, continue
+	for i := 0; i < 10; i++ {
+		if(i == 4) {
+			continue
+		}
+		fmt.Println(i)
+	} 
+	fmt.Println("out of loop")
+	
+	// While trong Golag
+	j := 0
+	for ; j < 5; {
+		fmt.Println(j)
+		j++
 	}
-
-	// if else
-	if number < 10 {
-		fmt.Println("number < 10")
-	}else {
-		fmt.Println("number = 10")
-	}
-
-	// if statement, condition {//code}
-	if a:= 100; a==100 {
-		fmt.Println("a = 100")
-	}
-
-	// switch case
-	number2 := 20
-	switch number2 {
-	case 1,200,300:
-		fmt.Println("number = 1")
-	case 2:
-		fmt.Println("number = 2")
-	case 3:
-		fmt.Println("number = 3")
-	case 20:
-		fmt.Println("number = 4")
-	default:
-		fmt.Println("unknown")
-
-	}
-
-	number3 := 30
-	switch {
-	case number3 > 10:
-			fmt.Println("number > 10")
-	case number3 == 10:
-			fmt.Println("number == 10")
-	}
-
-	// FallThrough Tiếp tục Math
-	number4 := 10
-	switch number4 {
-		case 1:
-			fmt.Println("number = 1")
-			fallthrough
-		case 10: 
-			if number == 10 {
-				goto handleNumberEqual10
-			}	
-			handleNumberEqual10:
-				fmt.Println("handle for case = 10")
-				break
-		case 2:
-			fmt.Println("number = 1")
-			fallthrough
-		case 3:
-			fmt.Println("number = 3")
-			fallthrough
-		case 4:
-			fmt.Println("number = 4")
-		
+	// for init, condition
+	for i,j := 1, 2; i < 10 && j < 10; i,j = i + 1, j + 1 {
+		fmt.Println(i)
+		fmt.Println(j)
 	}
 
 }
