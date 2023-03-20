@@ -1,30 +1,50 @@
+
 package main
 
 import "fmt"
 
 func main() {
-	// loops 
-	// for init, condition, post
-
-	// break, continue
-	for i := 0; i < 10; i++ {
-		if(i == 4) {
-			continue
-		}
-		fmt.Println(i)
-	} 
-	fmt.Println("out of loop")
+	result := total("Huu Hung")
+	fmt.Println(result)
 	
-	// While trong Golag
-	j := 0
-	for ; j < 5; {
-		fmt.Println(j)
-		j++
-	}
-	// for init, condition
-	for i,j := 1, 2; i < 10 && j < 10; i,j = i + 1, j + 1 {
-		fmt.Println(i)
-		fmt.Println(j)
-	}
+	w,h,area,name := rectInfo(100,200)
+	fmt.Println("width=", w)
+	fmt.Println("height=", h)
+	fmt.Println("area=", area)
+	fmt.Println("name =", name)
+	
 
+	w,h,isSquare := rectInfo2(200,200) 
+	if isSquare {
+		fmt.Printf("This is square")
+	} else {
+		fmt.Println("width",w)
+		fmt.Println("height", h)
+	}
+}
+
+func hi() {
+	fmt.Println("毎日ITを勉強してる頑張りましょう")
+}
+
+func sayHello(name string) {
+	fmt.Println("こんにちは",name)
+}
+
+func total( name string ) string {
+	result := fmt.Sprintf("SayHello %s", name)
+	return result
+}
+
+// Multiple return values
+func rectInfo(w, h int) (int, int, int, string) {
+	area := w * h
+	name := "ITを勉強してる"
+	return w, h, area, name
+}
+
+// Name return values
+func rectInfo2(w, h int) (width int, height int, isSquare bool) {
+	isSquare = w == h
+	return w,h,isSquare
 }
