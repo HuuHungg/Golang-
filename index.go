@@ -42,9 +42,10 @@ func rectInfo(w, h int) (int, int, int, string) {
 	name := "ITを勉強してる"
 	return w, h, area, name
 }
-
+	
 // Name return values
 func rectInfo2(w, h int) (width int, height int, isSquare bool) {
 	isSquare = w == h
 	return w,h,isSquare
 }
+
