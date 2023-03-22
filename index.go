@@ -1,51 +1,84 @@
-
 package main
 
 import "fmt"
 
 func main() {
-	result := total("Huu Hung")
-	fmt.Println(result)
-	
-	w,h,area,name := rectInfo(100,200)
-	fmt.Println("width=", w)
-	fmt.Println("height=", h)
-	fmt.Println("area=", area)
-	fmt.Println("name =", name)
-	
+	// Khai báo array
+	var myArray [4]int
+	fmt.Println(myArray)
 
-	w,h,isSquare := rectInfo2(200,200) 
-	if isSquare {
-		fmt.Printf("This is square")
-	} else {
-		fmt.Println("width",w)
-		fmt.Println("height", h)
+	// Gán giá trị cho array
+	myArray[0] = 123
+	myArray[1] = 456
+	myArray[2] = 789
+	myArray[3] = 10
+	fmt.Println(myArray)
+
+	// Khai báo 1 array có khỏi tạo giá trị
+
+	array := [...]int{1, 2, 3, 4, 5, 7, 8, 9, 0}
+	fmt.Println(array)
+
+	array1 := [4]int{100}
+	fmt.Println(array1)
+
+	// size mảng
+	fmt.Println(len(array))
+
+	// Khai báo mảng không cần set size
+	array3 := [...]string{"Javascript", "PHP", "Ruby", "React", "Node", "1"}
+	fmt.Println(array3[2])
+
+	// array là value type không phải là reference type
+
+	countries := [...]string{"VN", "US", "FRANCE"}
+	copyCountries := countries
+
+	copyCountries[0] = "CANADA"
+
+	fmt.Println(countries)
+	fmt.Println(copyCountries)
+
+	fmt.Println("===============")
+	// loop array
+	// Cách 1
+	for i := 0; i < len(copyCountries); i++ {
+		fmt.Println(copyCountries[i])
 	}
-}
 
-func hi() {
-	fmt.Println("毎日ITを勉強してる頑張りましょう")
-}
+	fmt.Println("===============")
+	// Cách 2
+	for index, value := range countries {
+		fmt.Printf("index=%d value=%s", index, value)
+		fmt.Println()
+	}
 
-func sayHello(name string) {
-	fmt.Println("こんにちは",name)
-}
+	fmt.Println("===============")
 
-func total( name string ) string {
-	result := fmt.Sprintf("SayHello %s", name)
-	return result
-}
+	// Khi chỉ muốn làm việc với value không muốn làm việc với index
+	// blank identifier
+	for _, value := range countries {
+		fmt.Printf("value = %s", value)
+		fmt.Println()
+	}
 
-// Multiple return values
-func rectInfo(w, h int) (int, int, int, string) {
-	area := w * h
-	name := "ITを勉強してる"
-	return w, h, area, name
-}
-	
-// Name return values
-func rectInfo2(w, h int) (width int, height int, isSquare bool) {
-	isSquare = w == h
-	return w,h,isSquare
-}
+	// mảng hai chiều,  [hàng][cột] [row][col]
 
+	matrix := [4][2]int{ //4 hàng hai cột
+		{1, 2},
+		{3, 4},
+		{5, 6},
+		{7, 8},
+	}
+	fmt.Println(matrix)
+
+	fmt.Println("===============")
+
+	for i := 0; i < 4; i++ {
+		for j := 0; j < 2; j++ {
+			fmt.Print(matrix[i][j], "  ")
+		}
+		fmt.Println()
+	}
+
+}
